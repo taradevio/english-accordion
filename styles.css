@@ -1,4 +1,4 @@
-* {
+*, *:after, *:before {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -6,46 +6,107 @@
 }
 
 #container {
-    background: linear-gradient(to top, hsl(275, 100%, 97%) 0%, hsl(275, 100%, 97%) 60%, hsl(292, 42%, 14%) 60%, hsl(292, 42%, 14%) 100%);
-    height: 100vh;
+    background: linear-gradient(to top, rgba(160,196,255,1), rgba(202,251,240,1));
+    max-width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #wrapper {
-    max-width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: hsl(0, 0%, 100%);
-    width: 550px;
+    width: 38%;
 }
 
 .title {
     display: flex;
-    gap: 1.5em;
-    padding: 1.5em;
+    margin: 1em;
 }
 
-.content {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
+.title > h1 {
+    margin-left: 10px;
+}
+
+span {
+    font-size: 18px;
+    padding: 8px;
+    border: 6px solid;
+    width: 70%;
+    margin: 0 auto 1em auto;
+    text-align: center;
+}
+
+.content, .reference {
     padding: 0 1.5em;
-    margin: 10px 0;
+    margin: 10px 0 25px 0;
+}
+
+summary {
+    cursor: pointer;
+    box-shadow: 5px 2px black;
+    list-style: none;
+    font-size: 20px;
+    padding: 15px 0;
+}
+
+details[open] summary {
+    background: linear-gradient(rgba(160,196,255,1), rgba(202,251,240,1));
+    font-weight: 600;
+}
+
+summary::before {
+    margin: 0 10px;
+    background-color: black;
+    color: wheat;
+    padding: 0 5px;
+    content: "↓";
+}
+
+details[open] summary::before {
+    content: "↑";
+    background-color: black;
 }
 
 h2 {
     margin: 0.5em 0;
 }
 
-hr {
-    width: 490px;
+.text {
+    overflow: hidden;
+    padding: 8px;
+    line-height: 23px;
+    min-height: 10vh;
+    border: 2.5px dotted;
+    font-size: 16px;
+    margin: 0 0 10px 0;
     text-align: center;
-    margin: 0 auto;
 }
 
-.text {
-    font-size: 16px;
-    overflow: hidden;
-    margin: 4px 0 10px 0;
+.reference {
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.reference img {
+    border-radius: 50%;
+}
+
+@media only screen and (min-width: 280px) {
+    #wrapper {
+        margin: 0 1.5em;
+        max-width: 80%;
+        width: 550px;
+    }
 }
